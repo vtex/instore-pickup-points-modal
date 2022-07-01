@@ -4,9 +4,7 @@ exports[`Input should render self and components 1`] = `
 <input
   autoFocus={false}
   data-hj-whitelist={true}
-  onBlur={undefined}
   onChange={[Function]}
-  placeholder={undefined}
   style={
     Object {
       "boxSizing": "border-box",
@@ -22,9 +20,7 @@ exports[`Input should render self and components with addressQuery 1`] = `
 <input
   autoFocus={false}
   data-hj-whitelist={true}
-  onBlur={undefined}
   onChange={[Function]}
-  placeholder={undefined}
   style={
     Object {
       "boxSizing": "border-box",

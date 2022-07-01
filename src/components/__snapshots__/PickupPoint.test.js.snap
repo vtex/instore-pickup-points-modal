@@ -47,11 +47,16 @@ exports[`PickupPoint should render self and components 1`] = `
         className="pkpmodal-pickup-point-address "
       >
         <div
-          className="address-summary"
+          className="address-summary address-summary-BRA"
         >
-          <span
-            className="postal-code"
+          <br
+            className="line1-delimiter"
           />
+          <span
+            className="country"
+          >
+            BRA
+          </span>
         </div>
       </div>
       <span
@@ -125,11 +130,16 @@ exports[`PickupPoint should render self and components in not modal mode 1`] = `
         className="pkpmodal-pickup-point-address "
       >
         <div
-          className="address-summary"
+          className="address-summary address-summary-BRA"
         >
-          <span
-            className="postal-code"
+          <br
+            className="line1-delimiter"
           />
+          <span
+            className="country"
+          >
+            BRA
+          </span>
         </div>
       </div>
       <span
@@ -203,11 +213,16 @@ exports[`PickupPoint should render self and components with free price 1`] = `
         className="pkpmodal-pickup-point-address "
       >
         <div
-          className="address-summary"
+          className="address-summary address-summary-BRA"
         >
-          <span
-            className="postal-code"
+          <br
+            className="line1-delimiter"
           />
+          <span
+            className="country"
+          >
+            BRA
+          </span>
         </div>
       </div>
       <span
