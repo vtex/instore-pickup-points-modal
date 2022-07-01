@@ -16,7 +16,7 @@ module.exports = {
     esModules: false,
   },
   webpack: {
-    extractText: {
+    extractCSS: {
       allChunks: true,
       filename: 'styles.css',
     },

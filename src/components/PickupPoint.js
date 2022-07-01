@@ -5,7 +5,9 @@ import { formatCurrency, formatNumber } from '../utils/Currency'
 import { formatDistance } from '../utils/Distance'
 import { translate } from '../utils/i18nUtils'
 import PinIcon from '../assets/components/PinIcon'
+import PinIconDisabled from '../assets/components/PinIconDisabled'
 import PinIconSelected from '../assets/components/PinIconSelected'
+import classNames from 'classnames'
 
 import { AddressSummary } from '@vtex/address-form'
 import { getUnavailableItemsAmount } from '../utils/pickupUtils'
@@ -39,6 +41,14 @@ export class PickupPoint extends Component {
     this.props.onClickPickupModal &&
     this.props.onClickPickupModal(this.props.liPackage)
 
+  renderPinIcon = (isAvailable, isSelected) => {
+    if (isSelected) {
+      return <PinIconSelected />
+    }
+
+    return isAvailable ? <PinIcon /> : <PinIconDisabled />
+  }
+
   render() {
     const {
       isSelected,
@@ -50,6 +60,8 @@ export class PickupPoint extends Component {
     } = this.props
 
     const { unavailableItemsAmount } = this.state
+    const isAvailable =
+      pickupPoint.available === undefined ? true : !!pickupPoint.available
 
     if (!pickupPoint) {
       return <div />
@@ -66,7 +78,10 @@ export class PickupPoint extends Component {
 
     return (
       <div
-        className="pkpmodal-pickup-point"
+        className={classNames(
+          'pkpmodal-pickup-point',
+          !isAvailable && 'pkpmodal-pickup-point-disabled'
+        )}
         id={pickupPoint.id
           .replace(/[^\w\s]/gi, '')
           .split(' ')
@@ -74,7 +89,7 @@ export class PickupPoint extends Component {
         onClick={this.handleOpenPickupDetails}>
         <div className="pkpmodal-pickup-point-main">
           <div className="pkpmodal-pickup-point-marker">
-            {isSelected ? <PinIconSelected /> : <PinIcon />}
+            {this.renderPinIcon(isAvailable, isSelected)}
             {pickupPoint.pickupDistance && (
               <p className="pkpmodal-pickup-point-distance">
                 {translate(intl, 'distance', {

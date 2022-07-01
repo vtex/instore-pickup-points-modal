@@ -20,6 +20,30 @@ import Error from './Error'
 import './PickupSidebar.css'
 
 class PickupSidebar extends Component {
+  orderedPickupOptionsArray = () => {
+    const { pickupOptions, availablePickupPoints } = this.props
+    const availableArray = []
+    const unavailableArray = []
+
+    if (!availablePickupPoints) return pickupOptions
+
+    pickupOptions.forEach(pickupOption => {
+      if (
+        availablePickupPoints.some(
+          availablePP => availablePP.id === pickupOption.pickupPointId
+        )
+      ) {
+        pickupOption.available = true
+        availableArray.push(pickupOption)
+      } else {
+        pickupOption.available = false
+        unavailableArray.push(pickupOption)
+      }
+    })
+
+    return availableArray.concat(unavailableArray)
+  }
+
   render() {
     const {
       activePickupPoint,
@@ -38,7 +62,6 @@ class PickupSidebar extends Component {
       logisticsInfo,
       mapStatus,
       onHandleAddressChange,
-      pickupOptions,
       pickupPoints,
       rules,
       searchAddress,
@@ -50,6 +73,9 @@ class PickupSidebar extends Component {
       togglePickupDetails,
       updateLocationTab,
     } = this.props
+
+    const pickupOptions = this.orderedPickupOptionsArray()
+    selectedPickupPoint.available = true
 
     const isNotShowingPickupDetailsAndHasPickupOptions =
       pickupOptions.length > 0 &&
@@ -215,6 +241,7 @@ PickupSidebar.propTypes = {
   onManualGeolocationError: PropTypes.func.isRequired,
   pickupOptions: PropTypes.array.isRequired,
   pickupPoints: PropTypes.array.isRequired,
+  availablePickupPoints: PropTypes.array,
   rules: PropTypes.object.isRequired,
   searchAddress: AddressShapeWithValidation,
   selectedPickupPoint: PropTypes.object,

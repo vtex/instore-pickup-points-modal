@@ -92,3 +92,8 @@
 .pkpmodal-pickup-point-address .line3-delimiter {
   display: none;
 }
+
+.pkpmodal-pickup-point-disabled {
+  pointer-events: none;
+  opacity: 0.4;
+}
