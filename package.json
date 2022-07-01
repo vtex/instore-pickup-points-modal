@@ -1,6 +1,6 @@
 {
   "name": "@vtex/pickup-points-modal",
-  "version": "1.1.15",
+  "version": "0.1.15-verdaccio",
   "description": "Pickup Points Modal React component",
   "main": "lib/index.js",
   "files": [
@@ -8,7 +8,7 @@
   ],
   "scripts": {
     "build": "nwb build-react-component --copy-files --no-demo && nwb build-react-app && npm run css && npm run removeMocks && npm run addLocales",
-    "css": "mv dist/styles.css lib/styles.css && mv dist/styles.css.map lib/styles.css.map ",
+    "css": "mv dist/0.styles.css lib/0.styles.css && mv dist/0.styles.css.map lib/0.styles.css.map ",
     "removeMocks": "rm -rf lib/**/__mocks__ && rm -rf lib/__mocks__ && rm -rf dist",
     "addLocales": "cp -R -f src/locales/ lib/locales/",
     "clean": "nwb clean-module && nwb clean-demo",
