@@ -259,4 +259,18 @@ describe('PickupPoint', () => {
       .toJSON()
     expect(wrapper).toMatchSnapshot()
   })
+
+  it('should render self and components with pickup point disabled', () => {
+    props.pickupPoint.available = false
+    const wrapper = renderer
+      .create(
+        <Provider store={store}>
+          <IntlContainer store={store}>
+            <IntlPickupPoint {...props} pickupPointId="2" />
+          </IntlContainer>
+        </Provider>
+      )
+      .toJSON()
+    expect(wrapper).toMatchSnapshot()
+  })
 })
