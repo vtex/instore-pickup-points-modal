@@ -1,11 +1,11 @@
-# Pickup Points Modal
+# InStore Pickup Points Modal
 
-> A React component that renders VTEX's pickup points modal
+> A React component that renders VTEX's instore pickup points modal
 
 ## Setup
 
 ```sh
-$ npm install @vtex/pickup-points-modal
+$ npm install @vtex/instore-pickup-points-modal
 ```
 
 ## API
@@ -41,41 +41,51 @@ This component renders the modal with a list of pickup points and a map with mar
 
 ```js
 PickupPointsModal.propTypes = {
-  closePickupPointsModal: PropTypes.func.isRequired,
+  activePickupPoint: PropTypes.object,
+  askForGeolocation: PropTypes.bool,
+  askForGeolocationStatus: PropTypes.string,
   changeActivePickupDetails: PropTypes.func.isRequired,
   changeActiveSLAOption: PropTypes.func.isRequired,
+  closePickupPointsModal: PropTypes.func.isRequired,
+  googleMaps: PropTypes.object,
   googleMapsKey: PropTypes.string.isRequired,
+  intl: intlShape,
+  isSearching: PropTypes.bool,
   items: PropTypes.array.isRequired,
-  isPickupDetailsActive: PropTypes.bool,
-  logisticsInfo: PropTypes.array.isRequired
+  loading: PropTypes.bool,
+  logisticsInfo: PropTypes.array.isRequired,
   onAddressChange: PropTypes.func.isRequired,
   pickupOptions: PropTypes.array.isRequired,
+  pickupPoints: PropTypes.array.isRequired,
+  rules: PropTypes.object,
   searchAddress: AddressShapeWithValidation,
   selectedPickupPoint: PropTypes.object,
-  rules: PropTypes.object,
   sellerId: PropTypes.string,
   storePreferencesData: PropTypes.object.isRequired,
-};
+}
 ```
 
 #### Example
 
 ```js
 <PickupPointsModal
-  closePickupPointsModal={this.closePickupModal}
-  changeActivePickupDetails={this.changeActivePickupDetails}
-  changeActiveSLAOption={this.changeActiveSLAOption}
-  googleMapsKey={googleMapsKey}
+  activePickupPoint={activePickupPoint}
+  askForGeolocation={false}
+  closePickupPointsModal={onClosePickupPointsModal}
+  changeActivePickupDetails={handleChangeActivePickupDetails}
+  changeActiveSLAOption={handleChangeActiveSLAOption}
+  googleMapsKey={googleMapsApiKey}
   intl={intl}
+  isPickupDetailsActive
   items={items}
-  isPickupDetailsActive={isPickupDetailsActive}
   logisticsInfo={logisticsInfo}
-  onAddressChange={this.handleAddressChange}
   pickupOptions={pickupOptions}
+  pickupPoints={pickupPoints}
+  availablePickupPoints={availablePickupPoints}
+  onAddressChange={noop}
+  rules={countryRule}
   searchAddress={searchAddress}
-  selectedPickupPoint={selectedPickupPoint}
-  selectedRules={selectedRules}
-  sellerId={sellerId}
+  selectedPickupPoint={activePickupPoint}
   storePreferencesData={storePreferencesData}
 />
 ```
