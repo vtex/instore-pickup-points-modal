@@ -22,26 +22,23 @@ import './PickupSidebar.css'
 class PickupSidebar extends Component {
   orderedPickupOptionsArray = () => {
     const { pickupOptions, availablePickupPoints } = this.props
-    const availableArray = []
-    const unavailableArray = []
 
     if (!availablePickupPoints) return pickupOptions
 
-    pickupOptions.forEach(pickupOption => {
-      if (
-        availablePickupPoints.some(
-          availablePP => availablePP.id === pickupOption.pickupPointId
-        )
-      ) {
-        pickupOption.available = true
-        availableArray.push(pickupOption)
-      } else {
-        pickupOption.available = false
-        unavailableArray.push(pickupOption)
+    pickupOptions.map(pickupOption => {
+      const available = availablePickupPoints.some(
+        availablePP => availablePP.id === pickupOption.pickupPointId
+      )
+
+      return {
+        ...pickupOption,
+        available,
       }
     })
 
-    return availableArray.concat(unavailableArray)
+    return pickupOptions.sort(
+      (a, b) => Number(b.available) - Number(a.available)
+    )
   }
 
   render() {
