@@ -1,6 +1,6 @@
 {
   "name": "@vtex/instore-pickup-points-modal",
-  "version": "2.0.0",
+  "version": "2.0.1-verdaccio",
   "description": "Pickup Points Modal React component",
   "main": "lib/index.js",
   "files": [
