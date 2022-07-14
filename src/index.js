@@ -254,6 +254,7 @@ export class PickupPointsModal extends Component {
       loading,
       pickupOptions,
       pickupPoints,
+      availablePickupPoints,
       rules,
       searchAddress,
       sellerId,
@@ -277,11 +278,13 @@ export class PickupPointsModal extends Component {
       <div>
         <div
           className="pkpmodal-backdrop"
+          // eslint-disable-next-line react/jsx-handler-names
           onClick={this.props.closePickupPointsModal}
         />
         <div className="pkpmodal">
           <CloseButton
             alt={translate(intl, 'closeButton')}
+            // eslint-disable-next-line react/jsx-handler-names
             onClickClose={this.props.closePickupPointsModal}
           />
           {(isLargeScreen || mapStatus === SHOW_MAP) && (
@@ -389,6 +392,7 @@ export class PickupPointsModal extends Component {
                 onManualGeolocationError={this.handleManualGeolocationError}
                 pickupOptions={pickupOptions}
                 pickupPoints={pickupPoints}
+                availablePickupPoints={availablePickupPoints}
                 rules={rules}
                 searchAddress={searchAddress}
                 selectedPickupPoint={selectedPickupPoint}
@@ -426,6 +430,7 @@ PickupPointsModal.propTypes = {
   onAddressChange: PropTypes.func.isRequired,
   pickupOptions: PropTypes.array.isRequired,
   pickupPoints: PropTypes.array.isRequired,
+  availablePickupPoints: PropTypes.array,
   rules: PropTypes.object,
   searchAddress: AddressShapeWithValidation,
   selectedPickupPoint: PropTypes.object,

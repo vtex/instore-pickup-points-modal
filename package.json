@@ -1,6 +1,6 @@
 {
-  "name": "@vtex/pickup-points-modal",
-  "version": "1.1.15",
+  "name": "@vtex/instore-pickup-points-modal",
+  "version": "2.0.2-verdaccio",
   "description": "Pickup Points Modal React component",
   "main": "lib/index.js",
   "files": [
@@ -8,7 +8,7 @@
   ],
   "scripts": {
     "build": "nwb build-react-component --copy-files --no-demo && nwb build-react-app && npm run css && npm run removeMocks && npm run addLocales",
-    "css": "mv dist/styles.css lib/styles.css && mv dist/styles.css.map lib/styles.css.map ",
+    "css": "mv dist/0.styles.css lib/0.styles.css && mv dist/0.styles.css.map lib/0.styles.css.map ",
     "removeMocks": "rm -rf lib/**/__mocks__ && rm -rf lib/__mocks__ && rm -rf dist",
     "addLocales": "cp -R -f src/locales/ lib/locales/",
     "clean": "nwb clean-module && nwb clean-demo",
@@ -30,7 +30,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/vtex/pickup-points-modal.git"
+    "url": "git+ssh://git@github.com/vtex/instore-pickup-points-modal.git"
   },
   "author": "Fernando de Almeida Coelho <nandoacoelho@gmail.com>",
   "license": "MIT",
@@ -60,7 +60,7 @@
     "husky": "1.0.0-rc.2",
     "i18n-iso-countries": "^3.5.0",
     "identity-obj-proxy": "^3.0.0",
-    "jest": "^22.2.2",
+    "jest": "24.9.0",
     "jest-enzyme": "^6.0.3",
     "mockdate": "^2.0.2",
     "nwb": "^0.23.0",
@@ -105,9 +105,9 @@
     }
   },
   "bugs": {
-    "url": "https://github.com/vtex/pickup-points-modal/issues"
+    "url": "https://github.com/vtex/instore-pickup-points-modal/issues"
   },
-  "homepage": "https://github.com/vtex/pickup-points-modal#readme",
+  "homepage": "https://github.com/vtex/instore-pickup-points-modal#readme",
   "directories": {
     "lib": "lib"
   }
